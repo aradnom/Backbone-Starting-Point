@@ -34,11 +34,13 @@ var App = ( function ( app ) {
 
 			$ = this.jQuery || jQuery || window.jQuery; // In case $.noConflict was called
 
+			// Setup /////////////////////////////////////////////////////////////////
+
 			// Extend events.js into the view so Backbone can delegate events to them
 			_.extend( this, app.Events );
 
-			// Add any necessary extensions/enhancements/bling/spinners to jQuery
-			app.Init.jQueryExtensions();
+			// Add any necessary 3rd party JS/extensions/enhancements/bling/spinners
+			app.Init.Extensions();
 
 			// Window events - bound outside Backbone events system
 			app.Init.WindowEvents();
@@ -46,8 +48,29 @@ var App = ( function ( app ) {
 			// Keyboard events - bound outside Backbone events system
 			app.Init.KeyboardEvents();
 
+			// Global functionality ///////////////////////////////////////////////////
+
+			this.LoadGlobal();
+
+			// Page components ////////////////////////////////////////////////////////
+
+			this.LoadComponents();
+
 			// Page-specific functionality ////////////////////////////////////////////
+
 			this.LoadPages();
+
+		},
+
+		LoadGlobal: function () {
+
+			// Functionality which should be used across the entire (or most) of the site
+
+		},
+
+		LoadComponents: function () {
+
+			// Functionality specific to site components (twitter feed, sidebar, etc.)
 
 		},
 

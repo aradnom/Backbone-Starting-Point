@@ -16,7 +16,7 @@ var App = ( function ( app ) {
 
 	app.Init = {
 
-		jQueryExtensions: function () {
+		Extensions: function () {
 			// Add check-for-placeholder support to Support.  Not included natively.
 			$.support.placeholder = (function(){
 			 	var i = document.createElement('input');

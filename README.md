@@ -1,5 +1,5 @@
 # ~ Backbone Starting Point ~
-## v1.0.0
+## v1.1.0
 
 ***
 
@@ -16,8 +16,10 @@ conveniently accessed right from the console).
 Including the framework files will result in a global object - App.  App will contain the following:
 
 	App: {
+		Component: Object
 		Config: Object
 		Events: Object
+		Global: Object
 		Init: Object
 		Page: Object
 		Templates: Object
@@ -32,6 +34,8 @@ Templates - Contains JS templates to be compiled via Underscore/Handlebars/whate
 __ - Contains "internal functionality," generally utility functions for use by Init, Page, etc.
 Init - Contains functions global to the entire site (or at least significant chunks of it)
 Events - Contains functions which should be called by bound events.
+Global - Contains functionality used site-wide or on a majority of pages
+Component - Contains functionality specific to a site component (ex. twitter feed).
 Page - Contains functions specific to individual pages (or components)
 App - The main application.  Calls functionality from everything else.  Events are bound here as well.
 
@@ -60,8 +64,17 @@ is not guaranteed depending on what you add to it.  Preferred include structure 
 	<script type="text/javascript" src="app/__.js"></script>		
 	<script type="text/javascript" src="app/init.js"></script>
 	<script type="text/javascript" src="app/events.js"></script>
+	<script type="text/javascript" src="app/global.js"></script>
+	<script type="text/javascript" src="app/component.js"></script>
 	<script type="text/javascript" src="app/page.js"></script>
 	<script type="text/javascript" src="app/app.js"></script>
+
+## Versions
+
+### 1.1.0
+
+* Added component.js and global.js to further split functionality
+* Added separate function to app for loading global/component/page functionality
 
 ## Todo
 
