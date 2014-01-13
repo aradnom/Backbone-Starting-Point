@@ -12,7 +12,7 @@
 	order the files are loaded in (though this isn't bulletproof depending on what you do).
 
 	Recommended load order:
-	Config --> Templates --> __ --> Init --> Events --> Page --> App
+	Config --> Templates --> __ --> Init --> Events --> Component --> App
 
 **/
 
@@ -48,21 +48,17 @@ var App = ( function ( app ) {
 			// Keyboard events - bound outside Backbone events system
 			app.Init.KeyboardEvents();
 
-			// Global functionality ///////////////////////////////////////////////////
+			// Startup (global) functionality ///////////////////////////////////////////////////
 
-			this.LoadGlobal();
+			this.LoadInit();
 
-			// Page components ////////////////////////////////////////////////////////
+			// App components /////////////////////////////////////////////////////////
 
 			this.LoadComponents();
 
-			// Page-specific functionality ////////////////////////////////////////////
-
-			this.LoadPages();
-
 		},
 
-		LoadGlobal: function () {
+		LoadInit: function () {
 
 			// Functionality which should be used across the entire (or most) of the site
 
@@ -71,16 +67,6 @@ var App = ( function ( app ) {
 		LoadComponents: function () {
 
 			// Functionality specific to site components (twitter feed, sidebar, etc.)
-
-		},
-
-		LoadPages: function () {
-
-			// General format ////////////////////////////////////////////////
-			// Todo: switch to routes
-			//if ( $(<page-specific-container>).length ) {
-			//	app.Page.<page-name>();
-			//}
 
 		},
 
